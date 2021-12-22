@@ -34,6 +34,17 @@ comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
 
 [[language]]
+name = "fish"
+scope = "source.fish"
+injection-regex = "fish"
+file-types = ["fish"]
+shebangs = ["fish"]
+roots = []
+comment-token = "#"
+
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
 name = "json"
 scope = "source.json"
 injection-regex = "json"
@@ -98,7 +109,7 @@ roots = []
 comment-token = "%"
 
 language-server = { command = "texlab" }
-indent = { tab-width = 4, unit = "\t" }
+indent = { tab-width = 2, unit = "  " }
 
 [[language]]
 name = "yaml"
