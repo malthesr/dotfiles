@@ -1,0 +1,22 @@
+[user]
+	email = malthesebro@protonmail.com
+	name = Malthe Sebro Rasmussen
+[core]
+    pager = delta
+	editor = helix
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[init]
+	defaultBranch = main
+[push]
+	default = simple
+[pull]
+	rebase = false
+[credential]
+	helper = cache
