@@ -14,14 +14,18 @@ alias dotfc='dotfiles commit'
 alias dotfa='dotfiles add'
 
 # General aliases
-function z --wraps zellij
-    zellij $argv
-end
-
 function dotf --wraps git
     git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $argv
 end
 
+function z --wraps zellij
+    zellij $argv
+end
+
 function l --wraps exa
     exa $argv
+end
+    
+function c --wraps bat
+    bat $argv
 end
