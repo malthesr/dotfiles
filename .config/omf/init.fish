@@ -14,10 +14,6 @@ alias dotfc='dotfiles commit'
 alias dotfa='dotfiles add'
 
 # General aliases
-function hx --wraps helix
-    helix $argv
-end
-
 function z --wraps zellij
     zellij $argv
 end

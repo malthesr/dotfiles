@@ -3,7 +3,7 @@
 	name = Malthe Sebro Rasmussen
 [core]
     pager = delta
-	editor = helix
+	editor = hx
 [interactive]
     diffFilter = delta --color-only
 [delta]
