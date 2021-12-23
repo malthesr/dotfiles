@@ -357,40 +357,16 @@ themes:
   gruvbox:
     fg: [235, 219, 178]
     bg: [40, 40, 40]
-    gray: [146, 131, 116]
-    black: [29, 32, 33]
-    red: [204, 36, 29]
-    green: [152, 151, 26]
-    yellow: [215, 153, 33]
-    blue: [69, 133, 136]
-    magenta: [177, 98, 134]
-    cyan: [104, 157, 106]
+    gray: [168, 153, 132]
+    black: [0, 0, 0]
+    red: [251, 73, 52]  
+    green: [184, 187, 38] 
+    yellow: [250, 189, 47] 
+    blue: [131, 165, 152] 
+    magenta: [211, 134, 155] 
+    cyan: [142, 192, 124]
     white: [251, 241, 199]
-    orange: [214, 93, 14]
-
-# color0  #282828
-# color8  #928374
-
-# # red
-# color1                #cc241d
-
-# # green
-# color2                #98971a
-
-# # yellow
-# color3                #d79921
-
-# # blue
-# color4                #458588
-
-# # magenta
-# color5                #b16286
-
-# # cyan
-# color6                #689d6a
-
-# # light gray
-# color7                #a89984
+    orange: [254, 128, 25]   
 
 # Choose the mode that zellij uses when starting up.
 # Default: normal
