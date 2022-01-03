@@ -1,3 +1,12 @@
+### GENERAL ###
+
+# Vi mode
+fish_vi_key_bindings
+
+# Global variables
+
+set -xg EDITOR hx
+
 ### THEME CONFIG ###
 
 set -xg pure_symbol_prompt 'δ'
@@ -8,15 +17,6 @@ set -xg pure_color_command_duration $pure_color_primary
 set -xg pure_show_jobs true
 
 ### ALIASES ###
-
-# Vi mode
-fish_vi_key_bindings
-
-# Dot files
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias dotfst='dotfiles status'
-alias dotfc='dotfiles commit'
-alias dotfa='dotfiles add'
 
 # General aliases
 function dotf --wraps git
