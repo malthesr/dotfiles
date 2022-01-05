@@ -1,5 +1,13 @@
 ### GENERAL ###
 
+# Source machine-specific config
+
+set localconfig $OMF_CONFIG/local.fish
+if not test -f $localconfig
+    touch $localconfig
+ end
+source $localconfig
+
 # Vi mode
 fish_vi_key_bindings
 
