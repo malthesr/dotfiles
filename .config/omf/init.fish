@@ -42,3 +42,7 @@ end
 function c --wraps bat
     bat $argv
 end
+
+function md --wraps mkdir
+    mkdir -p $argv
+end
