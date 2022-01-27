@@ -50,3 +50,7 @@ end
 function take
     mkdir -p $argv[1] && cd $argv[1]
 end
+
+function snk --wraps snakemake
+    nice snakemake -p $argv
+end
