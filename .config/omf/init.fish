@@ -51,6 +51,10 @@ function take
     mkdir -p $argv[1] && cd $argv[1]
 end
 
+function pg --wraps less
+    less -S $argv
+end
+
 function snk --wraps snakemake
     nice snakemake -p $argv
 end
