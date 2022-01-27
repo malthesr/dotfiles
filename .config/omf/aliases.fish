@@ -9,6 +9,10 @@ end
 function l --wraps exa
     exa $argv
 end
+
+function tree --wraps exa   
+    exa --tree --git-ignore $argv
+end
     
 function c --wraps bat
     bat $argv
@@ -29,3 +33,4 @@ end
 function snk --wraps snakemake
     nice snakemake -p $argv
 end
+
