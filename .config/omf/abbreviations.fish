@@ -4,6 +4,7 @@ abbr --add dotf 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 abbr --add md 'mkdir -p'
 abbr --add pg 'less -S'
 abbr --add snk 'snakemake -p'
+abbr --add xcp 'xclip -selection clipboard -in'
 
 if command -v exa > /dev/null
     abbr --add l 'exa'
