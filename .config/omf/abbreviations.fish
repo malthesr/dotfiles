@@ -7,7 +7,7 @@ abbr --add pg 'less -S'
 abbr --add o 'xdg-open'
 abbr --add py 'python3 -q'
 abbr --add R 'R --quiet --no-save'
-abbr --add snk 'snakemake -p'
+abbr --add snk 'python3 -m snakemake -p'
 abbr --add xcp 'xclip -selection clipboard -in'
 
 if command -v exa > /dev/null
