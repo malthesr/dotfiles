@@ -5,6 +5,11 @@ auto-pairs = false
 line-number = "relative"
 mouse = false
 
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+newline = "none"
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
