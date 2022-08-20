@@ -1,0 +1,4 @@
+[[language]]
+name = "python"
+file-types = ["Snakefile", "smk"]
+roots = [".snakemake"]
