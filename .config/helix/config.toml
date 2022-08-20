@@ -4,6 +4,7 @@ theme = "everforest_dark"
 auto-pairs = false
 line-number = "relative"
 mouse = false
+true-color = true
 
 [editor.whitespace.render]
 space = "none"
