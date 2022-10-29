@@ -2,3 +2,7 @@
 name = "python"
 file-types = ["Snakefile", "smk"]
 roots = [".snakemake"]
+
+[[language]]
+name = "rust"
+rulers = [101]

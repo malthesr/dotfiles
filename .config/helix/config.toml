@@ -1,9 +1,13 @@
-theme = "everforest_dark"
+theme = "catppuccin_frappe"
 
 [editor]
 auto-pairs = false
+color-modes = true
+cursorline = true
 line-number = "relative"
 mouse = false
+rulers = [81]
+shell = ["fish", "-c"]
 true-color = true
 
 [editor.whitespace.render]
@@ -16,6 +20,9 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.search]
+wrap-around = false
+
 [keys.normal]
 X = "extend_line_above"
 w = "extend_next_word_start"
@@ -24,5 +31,11 @@ b = "extend_prev_word_start"
 B = "extend_prev_long_word_start"
 e = "extend_next_word_end"
 E = "extend_next_long_word_end"
+S = ["copy_selection_on_next_line"]
 D = ["collapse_selection", "kill_to_line_end"]
-# C = ["collapse_selection", "extend_to_line_end", "change_selection"] # Broken, see github.com/helix-editor/helix/issues/2051
+C = ["collapse_selection", "extend_to_line_end", "change_selection"]
+"esc" = "collapse_selection"
+";" = "repeat_last_motion"
+
+[editor.indent-guides]
+render = true
