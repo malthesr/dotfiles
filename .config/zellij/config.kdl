@@ -1,0 +1,66 @@
+default_layout "compact"
+mouse_mode false
+on_force_close: "detach"
+pane_frames false
+theme "everforest-dark"
+
+keybinds clear-defaults=true {
+    shared_except "locked" {
+        bind "Alt h" { MoveFocusOrTab "Left"; }
+        bind "Alt l" { MoveFocusOrTab "Right"; }
+        bind "Alt j" { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Up"; }
+        bind "Alt [" { FocusPreviousPane; }
+        bind "Alt ]" { FocusNextPane; }
+        bind "Alt Left" { GoToPreviousTab; }
+        bind "Alt Right" { GoToNextTab; }
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt 4" { GoToTab 4; }
+        bind "Alt 5" { GoToTab 5; }
+        bind "Alt =" { Resize "Right"; }
+        bind "Alt +" { Resize "Up"; }
+        bind "Alt -" { Resize "Left"; }
+        bind "Alt _" { Resize "Down"; }
+        bind "Alt p" { TogglePaneFrames; }
+    }
+    normal {
+        bind "Alt s" { SwitchToMode "scroll"; }
+        bind "Alt y" { SwitchToMode "locked"; }
+        bind "Alt /" { SwitchToMode "entersearch"; }
+        bind "Alt d" { Detach; }
+        bind "Alt n" { NewPane "Right"; }
+        bind "Alt m" { NewPane "Down"; }
+        bind "Alt x" { CloseFocus; }
+        bind "Alt t" { NewTab; }
+        bind "Alt q" { CloseTab; }
+        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt F" { TogglePaneEmbedOrFloating; }
+    }
+    shared_among "scroll" "search" {
+        bind "Esc" { SwitchToMode "normal"; }
+        bind "Alt /" { SwitchToMode "entersearch"; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
+        bind "l" "Right" "PageDown" { PageScrollDown; }
+        bind "h" "Left" "PageUp" { PageScrollUp; }
+        bind "d" { HalfPageScrollDown; }
+        bind "u" { HalfPageScrollUp; }
+    }
+    scroll { }
+    entersearch {
+        bind "Esc" { SwitchToMode "normal"; }
+        bind "Enter" { SwitchToMode "search"; }
+    }
+    search {
+        bind "n" { Search "Down"; }
+        bind "p" { Search "Up"; }
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "w" { SearchToggleOption "Wrap"; }
+        bind "o" { SearchToggleOption "WholeWord"; }
+    }
+    locked {
+        bind "Alt y" { SwitchToMode "normal"; }
+    }
+}
