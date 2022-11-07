@@ -38,8 +38,11 @@ keybinds clear-defaults=true {
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Alt F" { TogglePaneEmbedOrFloating; }
     }
+    shared_among "normal" "scroll" "search" {
+        bind "Alt e" { EditScrollback; SwitchToMode "Normal"; }
+    }
     shared_among "scroll" "search" {
-        bind "Esc" { SwitchToMode "normal"; }
+        bind "Esc" "q" { SwitchToMode "normal"; }
         bind "Alt /" { SwitchToMode "entersearch"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
@@ -55,6 +58,7 @@ keybinds clear-defaults=true {
     }
     search {
         bind "n" { Search "Down"; }
+        bind "N" { Search "Up"; }
         bind "p" { Search "Up"; }
         bind "c" { SearchToggleOption "CaseSensitivity"; }
         bind "w" { SearchToggleOption "Wrap"; }
