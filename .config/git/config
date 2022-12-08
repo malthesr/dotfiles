@@ -2,16 +2,13 @@
 	email = malthesebro@protonmail.com
 	name = Malthe Sebro Rasmussen
 [core]
-    pager = delta
+    pager = less
 	editor = hx
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    navigate = true
 [merge]
     conflictstyle = diff3
 [diff]
     colorMoved = default
+	external = difft
 [init]
 	defaultBranch = main
 [push]
