@@ -31,13 +31,13 @@ function fish_prompt
     set_color normal
 
     echo -n (fish_git_prompt)
-    echo -n (fish_mode_prompt_custom)
+    # echo -n (fish_mode_prompt_custom)
 
     if test $last_status -ne 0
         set_color red
     end
 
-    echo -n '> '
+    echo -n ' > '
     set_color normal
 end
 
@@ -45,19 +45,19 @@ function fish_mode_prompt_custom
     switch $fish_bind_mode
     case default
         set_color blue
-        echo -n ' N '
+        echo -n ' N'
     case insert
         set_color green
-        echo -n ' I '
+        echo -n ' I'
     case replace_one
         set_color magenta
-        echo -n ' R '
+        echo -n ' R'
     case visual
         set_color yellow
-        echo -n ' V '
+        echo -n ' V'
     case '*'
         set_color red
-        echo -n ' ? '
+        echo -n ' ?'
     end
     set_color normal
 end
