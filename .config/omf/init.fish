@@ -20,11 +20,7 @@ fish_vi_key_bindings
 
 set -xg EDITOR hx
 
-# Theme
+# Prompt 
 
-set -xg pure_symbol_prompt 'δ'
-set -xg pure_symbol_reverse_prompt 'λ'
-set -xg pure_enable_single_line_prompt true
-set -xg pure_color_success $pure_color_primary
-set -xg pure_color_command_duration $pure_color_primary
-set -xg pure_show_jobs true
+set promptcfg $OMF_CONFIG/prompt.fish
+source $promptcfg
