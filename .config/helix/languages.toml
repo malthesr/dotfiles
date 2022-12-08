@@ -6,3 +6,7 @@ roots = [".snakemake"]
 [[language]]
 name = "rust"
 rulers = [101]
+
+[[language]]
+name = "r"
+indent = { tab-width = 4, unit = "    " }
