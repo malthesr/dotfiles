@@ -29,6 +29,7 @@ keybinds clear-defaults=true {
         bind "Alt s" { SwitchToMode "scroll"; }
         bind "Alt y" { SwitchToMode "locked"; }
         bind "Alt /" { SwitchToMode "entersearch"; }
+        bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
         bind "Alt d" { Detach; }
         bind "Alt n" { NewPane "Right"; }
         bind "Alt m" { NewPane "Down"; }
@@ -63,6 +64,10 @@ keybinds clear-defaults=true {
         bind "c" { SearchToggleOption "CaseSensitivity"; }
         bind "w" { SearchToggleOption "Wrap"; }
         bind "o" { SearchToggleOption "WholeWord"; }
+    }
+    renametab {
+        bind "Enter" { SwitchToMode "normal"; }
+        bind "Esc" { UndoRenameTab; SwitchToMode "normal"; }
     }
     locked {
         bind "Alt y" { SwitchToMode "normal"; }
