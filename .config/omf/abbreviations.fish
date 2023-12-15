@@ -1,6 +1,7 @@
 abbr --add b 'bat'
 abbr --add c 'cargo'
 abbr --add z 'zellij'
+abbr --add h 'helix'
 abbr --add dotf 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 abbr --add jl 'julia --banner=no --threads 4'
 abbr --add md 'mkdir -p'
@@ -20,3 +21,4 @@ else
     abbr --add l 'ls'
     abbr --add ll 'ls -l'
 end
+
