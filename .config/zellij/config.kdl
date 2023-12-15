@@ -3,6 +3,7 @@ mouse_mode false
 on_force_close: "detach"
 pane_frames false
 theme "everforest-dark"
+session_serialization false
 
 keybinds clear-defaults=true {
     shared_except "locked" {
