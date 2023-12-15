@@ -22,7 +22,7 @@ set -g fish_cursor_visual block
 
 # Global variables
 
-set -xg EDITOR hx
+set -xg EDITOR helix
 
 # Prompt 
 
