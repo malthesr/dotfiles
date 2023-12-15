@@ -1,0 +1,10 @@
+[Default Applications]
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+image/png=mupdf.desktop
+image/jpeg=mupdf.desktop
+image/svg+xml=mupdf.desktop
+image/vnd.djvu=org.pwmt.zathura-djvu.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
