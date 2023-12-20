@@ -27,5 +27,6 @@ set -xg R_HISTFILE $HOME/.Rhistory
 
 # Prompt 
 
+set -U fish_greeting ""
 set promptcfg $OMF_CONFIG/prompt.fish
 source $promptcfg

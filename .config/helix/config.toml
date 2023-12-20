@@ -21,6 +21,8 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
+[editor.indent-guides]
+render = true
 
 [keys.normal]
 X = "extend_line_above"
@@ -30,13 +32,10 @@ b = "extend_prev_word_start"
 B = "extend_prev_long_word_start"
 e = "extend_next_word_end"
 E = "extend_next_long_word_end"
-S = ["copy_selection_on_next_line"]
+S = "copy_selection_on_next_line"
 D = ["collapse_selection", "extend_to_line_end", "delete_selection"]
 C = ["collapse_selection", "extend_to_line_end", "change_selection"]
 ";" = "repeat_last_motion"
 "esc" = "collapse_selection"
-"ret" = "add_newline_below"
-"S-ret" = "add_newline_above"
-
-[editor.indent-guides]
-render = true
+# TODO: https://github.com/helix-editor/helix/pull/6979
+"ret" = ":pipe-to $HOME/.config/tmux/repl.sh $HX_REPL_LANG"
