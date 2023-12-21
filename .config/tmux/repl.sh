@@ -4,22 +4,23 @@
 
 set -o pipefail
 
-language=$1
+repl_lang_key=TMUX_REPL
+repl_lang=${1:-$(tmux show-environment $repl_lang_key | sed "s:^.*=::")}
 buffer="${2:-__repl__}"
 shell="${3:-fish}"
 
-case $language in
-  "julia")
+case $repl_lang in
+  jl | julia)
     repl_cmd="jl"
     repl_proc="julia"
     ;;
 
-  "python")
+  py | python)
     repl_cmd="py"
     repl_proc="python3"
     ;;
 
-  "r")
+  r | R)
     repl_cmd="R"
     repl_proc="R"
     ;;
