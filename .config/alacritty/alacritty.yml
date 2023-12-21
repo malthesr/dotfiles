@@ -17,7 +17,7 @@ font:
     x: 0
 
 import:
-  - ~/.config/alacritty/gruvbox_dark.yml
+  - ~/.config/alacritty/catppuccin-frappe.yml
 
 selection:
   save_to_clipboard: true
