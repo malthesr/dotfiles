@@ -23,6 +23,7 @@ set -g fish_cursor_visual block
 # Global variables
 
 set -xg EDITOR helix
+set -xg PAGER 'less -S' 
 set -xg R_HISTFILE $HOME/.Rhistory
 
 # Prompt 
