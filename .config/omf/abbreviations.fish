@@ -1,5 +1,6 @@
 abbr --add b 'bat'
 abbr --add c 'cargo'
+abbr --add j 'just'
 abbr --add z 'zellij'
 abbr --add h 'helix'
 abbr --add t 'tmux'
