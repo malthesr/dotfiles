@@ -37,6 +37,7 @@ D = ["collapse_selection", "extend_to_line_end", "delete_selection"]
 C = ["collapse_selection", "extend_to_line_end", "change_selection"]
 ";" = "repeat_last_motion"
 "esc" = "collapse_selection"
+"~" = "switch_to_uppercase"
 # TODO: Send language with https://github.com/helix-editor/helix/pull/6979
 "ret" = ":pipe-to $HOME/.config/tmux/repl.sh"
 
