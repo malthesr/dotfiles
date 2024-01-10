@@ -3,3 +3,5 @@ set guioptions none
 
 map <Left> navigate previous
 map <Right> navigate next
+
+include catppuccin-frappe
