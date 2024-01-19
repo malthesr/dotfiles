@@ -35,6 +35,7 @@ E = "extend_next_long_word_end"
 S = "copy_selection_on_next_line"
 D = ["collapse_selection", "extend_to_line_end", "delete_selection"]
 C = ["collapse_selection", "extend_to_line_end", "change_selection"]
+K = "no_op" # Reminder to remap for something useful
 ";" = "repeat_last_motion"
 "esc" = "collapse_selection"
 "~" = "switch_to_uppercase"
@@ -43,3 +44,30 @@ C = ["collapse_selection", "extend_to_line_end", "change_selection"]
 
 [keys.select]
 "ret" = ":pipe-to $HOME/.config/tmux/repl.sh"
+
+[keys.normal.z]
+"s" = "split_selection_on_newline"
+"S" = "split_selection"
+"k" = "keep_selections"
+"K" = "remove_selections"
+"p" = "copy_selection_on_next_line"
+"P" = "copy_selection_on_prev_line"
+"f" = "flip_selections"
+"F" = "ensure_selections_forward"
+"t" = "no_op"
+"b" = "no_op"
+"m" = "no_op"
+"up" = "no_op"
+"down" = "no_op"
+"c" = "no_op"
+"z" = "no_op"
+"j" = "no_op"
+"pageup" = "no_op"
+"pagedown" = "no_op"
+"space" = "no_op"
+"ret" = "no_op"
+"backspace" = "no_op"
+"C-b" = "no_op"
+"C-u" = "no_op"
+"C-f" = "no_op"
+"C-d" = "no_op"
