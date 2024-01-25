@@ -25,6 +25,8 @@ select = "underline"
 render = true
 
 [keys.normal]
+K = "half_page_up" 
+J = "half_page_down" 
 X = "extend_line_above"
 w = "extend_next_word_start"
 W = "extend_next_long_word_start"
@@ -34,40 +36,43 @@ e = "extend_next_word_end"
 E = "extend_next_long_word_end"
 S = "copy_selection_on_next_line"
 D = ["collapse_selection", "extend_to_line_end", "delete_selection"]
+"C-d" = ["collapse_selection", "extend_line", "delete_selection"]
 C = ["collapse_selection", "extend_to_line_end", "change_selection"]
-K = "no_op" # Reminder to remap for something useful
-";" = "repeat_last_motion"
+"C-c" = ["collapse_selection", "extend_line", "change_selection"]
+z = "flip_selections"
+"minus" = "join_selections"
+"_" = "join_selections_space"
+"`" = "toggle_comments"
 "esc" = "collapse_selection"
-"~" = "switch_to_uppercase"
+"tab" = ":buffer-next"
+"S-tab" = ":buffer-previous"
 # TODO: Send language with https://github.com/helix-editor/helix/pull/6979
 "ret" = ":pipe-to $HOME/.config/tmux/repl.sh"
 
 [keys.select]
+# TODO: See above
 "ret" = ":pipe-to $HOME/.config/tmux/repl.sh"
 
-[keys.normal.z]
-"s" = "split_selection_on_newline"
-"S" = "split_selection"
-"k" = "keep_selections"
-"K" = "remove_selections"
-"p" = "copy_selection_on_next_line"
-"P" = "copy_selection_on_prev_line"
-"f" = "flip_selections"
-"F" = "ensure_selections_forward"
-"t" = "no_op"
-"b" = "no_op"
-"m" = "no_op"
-"up" = "no_op"
-"down" = "no_op"
-"c" = "no_op"
-"z" = "no_op"
-"j" = "no_op"
-"pageup" = "no_op"
-"pagedown" = "no_op"
-"space" = "no_op"
-"ret" = "no_op"
-"backspace" = "no_op"
-"C-b" = "no_op"
-"C-u" = "no_op"
-"C-f" = "no_op"
-"C-d" = "no_op"
+[keys.insert]
+# Apparently the best way to do this,
+# https://github.com/helix-editor/helix/discussions/8258
+"S-tab" = ":insert-output echo -ne '\t'"
+
+[keys.normal."space"]
+R = "no_op"
+"c" = "replace_selections_with_clipboard"
+"C" = "replace_selections_with_primary_clipboard"
+
+[keys.normal.";"]
+"tab" = "switch_case"
+c = "switch_to_lowercase"
+C = "switch_to_uppercase"
+F = "ensure_selections_forward"
+k = "keep_selections"
+K = "remove_selections"
+m = "merge_selections"
+p = "copy_selection_on_next_line"
+P = "copy_selection_on_prev_line"
+r = "select_regex"
+s = "split_selection_on_newline"
+S = "split_selection"
