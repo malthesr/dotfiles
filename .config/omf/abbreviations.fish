@@ -14,11 +14,10 @@ abbr --add R 'R --quiet --no-save'
 abbr --add snk 'python3 -m snakemake -p --use-conda'
 abbr --add xcp 'xclip -selection clipboard -in'
 
-if command -v exa > /dev/null
-    abbr --add l 'exa'
-    abbr --add ls 'exa'
-    abbr --add ll 'exa -l'
-    abbr --add tree 'exa --tree --git-ignore'
+if command -v ls > /dev/null
+    abbr --add l 'eza'
+    abbr --add ll 'eza -l'
+    abbr --add tree 'eza --tree --git-ignore'
 else
     abbr --add l 'ls'
     abbr --add ll 'ls -l'
