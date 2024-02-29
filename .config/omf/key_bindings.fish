@@ -2,6 +2,7 @@ bind -M insert \cf accept-autosuggestion
 bind -M insert \ce edit_command_buffer
 bind -M insert \cu history-token-search-backward
 bind -M insert \cp __fish_paginate
+bind -M insert \ct 'fish_commandline_append " &| head -n 10"'
 bind -M insert \cq __fish_toggle_comment_commandline
 bind -M insert -k nul 'clear; commandline -f repaint'
 
