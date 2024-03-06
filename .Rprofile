@@ -1,4 +1,5 @@
 if (interactive()) {
+  suppressMessages(require(devtools))
   .Last <- function() try(savehistory("~/.Rhistory"))
 }
 
