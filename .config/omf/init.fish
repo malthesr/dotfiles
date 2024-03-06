@@ -21,13 +21,18 @@ set -g fish_cursor_replace_one underscore blink
 set -g fish_cursor_visual block
 
 # Global variables
-
 set -xg EDITOR helix
 set -xg PAGER 'less -S' 
 set -xg R_HISTFILE $HOME/.Rhistory
 
 # Prompt 
-
 set -U fish_greeting ""
 set promptcfg $OMF_CONFIG/prompt.fish
 source $promptcfg
+
+# Run tmux on startup
+#
+# If tmux exists, shell is interactive, and not already in tmux session
+if type -q tmux && status --is-interactive && not string match -rq "tmux" $TERM
+    tmux new-session
+end
