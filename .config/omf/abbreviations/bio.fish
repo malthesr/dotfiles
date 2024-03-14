@@ -1,5 +1,6 @@
 function __subcmd -a cmd abbr subcmd
-    string match --quiet "$cmd $abbr " -- (commandline -j); or return 1
+    set -l pattern (string join '' '^' "$cmd $abbr" '[ ]?$')
+    string match -qr $pattern -- (commandline -j); or return 1
     echo "$subcmd"
 end
 
