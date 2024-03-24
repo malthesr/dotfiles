@@ -36,10 +36,10 @@ e = "extend_next_word_end"
 E = "extend_next_long_word_end"
 S = "copy_selection_on_next_line"
 D = ["collapse_selection", "extend_to_line_end", "delete_selection"]
-"C-d" = ["collapse_selection", "extend_line", "delete_selection"]
 C = ["collapse_selection", "extend_to_line_end", "change_selection"]
-"C-c" = ["collapse_selection", "extend_line", "change_selection"]
 z = "flip_selections"
+q = "goto_word"
+Q = "repeat_last_motion"
 "minus" = "join_selections"
 "_" = "join_selections_space"
 "`" = "toggle_comments"
@@ -62,6 +62,8 @@ z = "flip_selections"
 R = "no_op"
 "c" = "replace_selections_with_clipboard"
 "C" = "replace_selections_with_primary_clipboard"
+"q" = "replay_macro"
+"Q" = "record_macro"
 
 [keys.normal.";"]
 "tab" = "switch_case"
