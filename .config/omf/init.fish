@@ -10,7 +10,7 @@ source $fncfg
 set localconfig $OMF_CONFIG/local.fish
 if not test -f $localconfig
     touch $localconfig
- end
+end
 source $localconfig
 
 # Vi mode
@@ -21,8 +21,9 @@ set -g fish_cursor_replace_one underscore blink
 set -g fish_cursor_visual block
 
 # Global variables
+set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg EDITOR helix
-set -xg PAGER 'less -S' 
+set -xg PAGER 'less -S'
 set -xg R_HISTFILE $HOME/.Rhistory
 
 # Prompt 
@@ -33,6 +34,6 @@ source $promptcfg
 # Run tmux on startup
 #
 # If tmux exists, shell is interactive, and not already in tmux session
-if type -q tmux && status --is-interactive && not string match -rq "tmux" $TERM
+if type -q tmux && status --is-interactive && not string match -rq tmux $TERM
     tmux new-session
 end
