@@ -9,3 +9,7 @@ rulers = [101]
 
 [[language]]
 name = "r"
+
+[[language]]
+name = "rmarkdown"
+file-types = ["rmd", "Rmd", "qmd"]
