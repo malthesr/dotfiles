@@ -49,15 +49,15 @@ C = ["collapse_selection", "extend_to_line_end", "change_selection"]
 C-c = "change_selection_noyank"
 
 esc = "collapse_selection"
-S = "copy_selection_on_next_line"
 z = "flip_selections"
 minus = "join_selections_space"
 _ = "join_selections"
 
 q = "goto_word"
-Q = "repeat_last_motion"
 "`" = "toggle_comments"
 
+S = ":write"
+Q = ":buffer-close"
 tab = ":buffer-next"
 S-tab = ":buffer-previous"
 
