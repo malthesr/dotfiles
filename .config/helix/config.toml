@@ -64,19 +64,12 @@ S-tab = ":buffer-previous"
 "\"" = "no_op"
 
 # TODO: Send language with https://github.com/helix-editor/helix/pull/6979
-"=" = ":pipe-to $HOME/.config/tmux/repl.sh"
-"+" = [
-  "goto_line_end",
-  "goto_prev_paragraph",
-  "collapse_selection",
-  "goto_next_paragraph",
-  ":pipe-to $HOME/.config/tmux/repl.sh",
-  "collapse_selection"
-]
+"=" = ":pipe-to $HOME/.config/tmux/repl.sh" # Send selection to REPL
+"+" = "@map=<esc>" # Send paragraph to REPL
 
 [keys.select]
 # TODO: See above
-"=" = ":pipe-to $HOME/.config/tmux/repl.sh"
+"=" = ":pipe-to $HOME/.config/tmux/repl.sh" # Send selection to REPL
 
 C-w = "extend_next_sub_word_start"
 C-b = "extend_prev_sub_word_start"
