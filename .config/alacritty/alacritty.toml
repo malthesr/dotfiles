@@ -1,4 +1,4 @@
-import = ["/home/malthe/.config/alacritty/catppuccin-frappe.toml"]
+import = ["~/.config/alacritty/catppuccin-frappe.toml"]
 
 [font]
 size = 14
