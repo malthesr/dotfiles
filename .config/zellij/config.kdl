@@ -1,9 +1,10 @@
 default_layout "compact"
-mouse_mode false
+mouse_mode true
 on_force_close: "detach"
 pane_frames false
-theme "everforest-dark"
+theme "catppuccin-frappe"
 session_serialization false
+scroll_buffer_size 100_000
 
 keybinds clear-defaults=true {
     shared_except "locked" {
@@ -20,17 +21,22 @@ keybinds clear-defaults=true {
         bind "Alt 3" { GoToTab 3; }
         bind "Alt 4" { GoToTab 4; }
         bind "Alt 5" { GoToTab 5; }
-        bind "Alt =" { Resize "Right"; }
-        bind "Alt +" { Resize "Up"; }
-        bind "Alt -" { Resize "Left"; }
-        bind "Alt _" { Resize "Down"; }
-        bind "Alt p" { TogglePaneFrames; }
+        bind "Alt 6" { GoToTab 6; }
+        bind "Alt 7" { GoToTab 7; }
+        bind "Alt 8" { GoToTab 8; }
+        bind "Alt 9" { GoToTab 9; }
+        bind "Alt L" { Resize "Right"; }
+        bind "Alt K" { Resize "Up"; }
+        bind "Alt J" { Resize "Down"; }
+        bind "Alt H" { Resize "Left"; }
+        bind "Alt P" { TogglePaneFrames; }
     }
     normal {
         bind "Alt s" { SwitchToMode "scroll"; }
         bind "Alt y" { SwitchToMode "locked"; }
         bind "Alt /" { SwitchToMode "entersearch"; }
         bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
+        bind "Alt p" { SwitchToMode "renamepane"; PaneNameInput 0;}
         bind "Alt d" { Detach; }
         bind "Alt n" { NewPane "Right"; }
         bind "Alt m" { NewPane "Down"; }
@@ -39,6 +45,10 @@ keybinds clear-defaults=true {
         bind "Alt q" { CloseTab; }
         bind "Alt f" { ToggleFloatingPanes; }
         bind "Alt F" { TogglePaneEmbedOrFloating; }
+        bind "Alt z" { ToggleFocusFullscreen; }
+        bind "Alt e" { EditScrollback; }
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
     }
     shared_among "normal" "scroll" "search" {
         bind "Alt e" { EditScrollback; SwitchToMode "Normal"; }
@@ -48,12 +58,14 @@ keybinds clear-defaults=true {
         bind "Alt /" { SwitchToMode "entersearch"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
-        bind "l" "Right" "PageDown" { PageScrollDown; }
-        bind "h" "Left" "PageUp" { PageScrollUp; }
-        bind "d" { HalfPageScrollDown; }
-        bind "u" { HalfPageScrollUp; }
+        bind "J" { HalfPageScrollDown; }
+        bind "K" { HalfPageScrollUp; }
+        bind "PageDown" { HalfPageScrollDown; }
+        bind "PageUp" { HalfPageScrollUp; }
     }
-    scroll { }
+    scroll {
+        bind "/" { SwitchToMode "entersearch"; }
+    }
     entersearch {
         bind "Esc" { SwitchToMode "normal"; }
         bind "Enter" { SwitchToMode "search"; }
@@ -69,6 +81,10 @@ keybinds clear-defaults=true {
     renametab {
         bind "Enter" { SwitchToMode "normal"; }
         bind "Esc" { UndoRenameTab; SwitchToMode "normal"; }
+    }
+    renamepane {
+        bind "Enter" { SwitchToMode "normal"; }
+        bind "Esc" { UndoRenamePane; SwitchToMode "normal"; }
     }
     locked {
         bind "Alt y" { SwitchToMode "normal"; }
