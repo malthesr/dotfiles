@@ -10,6 +10,7 @@ set -l abbrs \
     au,"add --update" \
     apa,"add --patch" \
     b,"branch" \
+    d,"diff" \
     c,"commit -v" \
     c!,"command -v --amend" \
     co,"checkout" \
