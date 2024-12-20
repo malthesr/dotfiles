@@ -1,0 +1,1 @@
+set -xg EDITOR hx
