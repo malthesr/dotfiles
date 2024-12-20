@@ -13,3 +13,7 @@ name = "r"
 [[language]]
 name = "rmarkdown"
 file-types = ["rmd", "Rmd", "qmd"]
+
+[[language]]
+name = "fish"
+auto-format = false
