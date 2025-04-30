@@ -3,7 +3,7 @@
 	name = Malthe Sebro Rasmussen
 [core]
     pager = less
-	editor = helix
+	editor = hx
 [merge]
     conflictstyle = diff3
 [diff]
