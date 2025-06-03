@@ -18,3 +18,14 @@ file-types = ["rmd", "Rmd", "qmd"]
 [[language]]
 name = "fish"
 auto-format = false
+
+[[language]]
+name = "python"
+file-types = ["Snakefile", "smk"]
+roots = [".snakemake"]
+
+[[language]]
+name = "nextflow"
+scope = "source.nextflow"
+file-types = ["nf"]
+comment-token = "//"
