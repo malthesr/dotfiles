@@ -1,14 +1,15 @@
 [[language]]
-name = "python"
-file-types = ["Snakefile", "smk"]
-roots = [".snakemake"]
-
-[[language]]
 name = "rust"
 rulers = [101]
 
 [[language]]
 name = "r"
+language-servers = ["air"]
+auto-format = true
+
+[language-server.air]
+command = "air"
+args = ["language-server"]
 
 [[language]]
 name = "rmarkdown"
