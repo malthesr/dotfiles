@@ -28,8 +28,10 @@ render = true
 enable = false
 
 [keys.normal]
-K = "half_page_up" 
-J = "half_page_down" 
+J = "goto_word" 
+K = "toggle_comments"
+H = "goto_line_start"
+L = "goto_line_end"
 
 X = "extend_line_above"
 
@@ -43,37 +45,56 @@ e = "extend_next_word_end"
 E = "extend_next_long_word_end"
 C-e = "extend_next_sub_word_end"
 
+C-t = "extend_till_char"
+C-f = "extend_next_char"
+
 D = ["collapse_selection", "extend_to_line_end", "delete_selection"]
 C-d = "delete_selection_noyank"
 C = ["collapse_selection", "extend_to_line_end", "change_selection"]
 C-c = "change_selection_noyank"
 
 esc = "collapse_selection"
-z = "flip_selections"
 minus = "join_selections_space"
 _ = "join_selections"
+z = "flip_selections"
+s = "copy_selection_on_next_line"
+S = "select_regex"
+q = "split_selection_on_newline"
+Q = "split_selection"
+C-q = "keep_selections"
 
-q = "goto_word"
-"`" = "toggle_comments"
-
-S = ":write"
-Q = ":buffer-close"
 tab = ":buffer-next"
 S-tab = ":buffer-previous"
 
+"~" = "switch_case"
+"`" = "switch_to_lowercase"
+
 "\"" = "no_op"
+"'" = "no_op"
+";" = "no_op"
 
 # TODO: Send language with https://github.com/helix-editor/helix/pull/6979
 "=" = ":pipe-to $HOME/.config/tmux/repl.sh" # Send selection to REPL
 "+" = "@map=<esc>" # Send paragraph to REPL
 
 [keys.select]
-# TODO: See above
-"=" = ":pipe-to $HOME/.config/tmux/repl.sh" # Send selection to REPL
+H = "goto_line_start"
+L = "goto_line_end"
+X = "extend_line_above"
+
+t = "extend_till_char"
+T = "extend_till_prev_char"
+f = "extend_next_char"
+F = "extend_prev_char"
 
 C-w = "extend_next_sub_word_start"
 C-b = "extend_prev_sub_word_start"
 C-e = "extend_next_sub_word_end"
+
+z = "flip_selections"
+
+# TODO: See above
+"=" = ":pipe-to $HOME/.config/tmux/repl.sh" # Send selection to REPL
 
 [keys.insert]
 # Apparently the best way to do this,
@@ -121,17 +142,3 @@ k = "hover"
 s = "symbol_picker"
 S = "workspace_symbol_picker"
 r = "rename_symbol"
-
-[keys.normal.";"]
-tab = "switch_case"
-c = "switch_to_lowercase"
-C = "switch_to_uppercase"
-F = "ensure_selections_forward"
-k = "keep_selections"
-K = "remove_selections"
-m = "merge_selections"
-p = "copy_selection_on_next_line"
-P = "copy_selection_on_prev_line"
-r = "select_regex"
-s = "split_selection_on_newline"
-S = "split_selection"
