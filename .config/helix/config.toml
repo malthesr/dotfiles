@@ -30,7 +30,7 @@ enable = false
 [keys.normal]
 J = "goto_word" 
 K = "toggle_comments"
-H = "goto_line_start"
+H = "goto_first_nonwhitespace"
 L = "goto_line_end"
 
 X = "extend_line_above"
@@ -53,6 +53,10 @@ C-d = "delete_selection_noyank"
 C = ["collapse_selection", "extend_to_line_end", "change_selection"]
 C-c = "change_selection_noyank"
 
+C-y = "yank_to_clipboard"
+C-p = "paste_clipboard_after"
+C-r = "replace_selections_with_clipboard"
+
 esc = "collapse_selection"
 minus = "join_selections_space"
 _ = "join_selections"
@@ -69,8 +73,14 @@ S-tab = ":buffer-previous"
 "~" = "switch_case"
 "`" = "switch_to_lowercase"
 
-"\"" = "no_op"
-"'" = "no_op"
+"?" = "command_palette"
+backspace = "select_register"
+
+"'" = "replay_macro"
+"\"" = "record_macro"
+
+# Currently unused
+G = "no_op"
 ";" = "no_op"
 
 # TODO: Send language with https://github.com/helix-editor/helix/pull/6979
@@ -78,8 +88,9 @@ S-tab = ":buffer-previous"
 "+" = "@map=<esc>" # Send paragraph to REPL
 
 [keys.select]
-H = "goto_line_start"
+H = "goto_first_nonwhitespace"
 L = "goto_line_end"
+
 X = "extend_line_above"
 
 t = "extend_till_char"
@@ -101,37 +112,21 @@ z = "flip_selections"
 # https://github.com/helix-editor/helix/discussions/8258
 S-tab = ":insert-output echo -ne '\t'"
 
-[keys.normal.space]
-a = "file_picker_in_current_directory"
-b = "buffer_picker"
-j = "jumplist_picker"
-s = "global_search"
-space = "file_picker"
-"?" = "command_palette"
+[keys.normal.Z]
+space = "page_cursor_half_down"
+backspace = "page_cursor_half_up"
 
-d = "no_op"
-D = "no_op"
-f = "no_op"
-F = "no_op"
-g = "no_op"
-h = "no_op"
-k = "no_op"
-S = "no_op"
-r = "no_op"
-R = "no_op"
-w = "no_op"
-A-c = "no_op"
-"'" = "no_op"
+C-b = "no_op"
+C-d = "no_op"
+C-f = "no_op"
+C-u = "no_op"
 "/" = "no_op"
+"?" = "no_op"
+n = "no_op"
+N = "no_op"
 
-[keys.normal.backspace]
-backspace = "select_register"
-
-c = "replace_selections_with_clipboard"
-C = "replace_selections_with_primary_clipboard"
-
-q = "replay_macro"
-Q = "record_macro"
+[keys.normal.g]
+w = "no_op"
 
 [keys.normal.ret]
 a = "code_action"
@@ -142,3 +137,38 @@ k = "hover"
 s = "symbol_picker"
 S = "workspace_symbol_picker"
 r = "rename_symbol"
+
+[keys.normal.space]
+space = "file_picker"
+b = "buffer_picker"
+ret = ":write-buffer-close"
+w = ":write"
+q = ":buffer-close"
+o = ":buffer-close-others"
+
+e = "no_op"
+E = "no_op"
+A-c = "no_op"
+f = "no_op"
+F = "no_op"
+j = "no_op"
+g = "no_op"
+G = "no_op"
+k = "no_op"
+s = "no_op"
+S = "no_op"
+d = "no_op"
+D = "no_op"
+r = "no_op"
+a = "no_op"
+h = "no_op"
+"'" = "no_op"
+C = "no_op"
+A = "no_op"
+p = "no_op"
+P = "no_op"
+y = "no_op"
+Y = "no_op"
+R = "no_op"
+"/" = "no_op"
+"?" = "no_op"
