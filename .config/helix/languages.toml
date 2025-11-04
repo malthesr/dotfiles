@@ -21,8 +21,22 @@ auto-format = false
 
 [[language]]
 name = "python"
-file-types = ["Snakefile", "smk"]
-roots = [".snakemake"]
+auto-format = true
+rulers = [101]
+language-servers = [
+    {name = "pyright"},
+    {name = "ruff"},
+]
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+config = {}
+
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+config = {}
 
 [[language]]
 name = "nextflow"
