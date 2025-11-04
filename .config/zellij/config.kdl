@@ -1,46 +1,21 @@
-default_layout "compact"
 mouse_mode true
 on_force_close: "detach"
 pane_frames false
 theme "catppuccin-frappe"
 session_serialization false
 scroll_buffer_size 100_000
+show_startup_tips false
 
 keybinds clear-defaults=true {
-    normal {
-        bind "Alt F" { TogglePaneEmbedOrFloating; }
-        bind "Alt [" { PreviousSwapLayout; }
-        bind "Alt ]" { NextSwapLayout; }
-        bind "Alt d" { Detach; }
-        bind "Alt e" { EditScrollback; }
-        bind "Alt f" { ToggleFloatingPanes; }
-        bind "Alt m" { NewPane "down"; }
-        bind "Alt n" { NewPane "right"; }
-        bind "Alt p" { SwitchToMode "renamepane"; PaneNameInput 0; }
-        bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
-        bind "Alt s" { SwitchToMode "scroll"; }
-        bind "Alt t" { NewTab; }
-        bind "Alt x" { CloseFocus; }
-        bind "Alt y" { SwitchToMode "locked"; }
-        bind "Alt z" { ToggleFocusFullscreen; }
-    }
-    locked {
-        bind "Alt y" { SwitchToMode "normal"; }
-    }
-    scroll {
-        bind "/" { SwitchToMode "entersearch"; }
-    }
-    search {
-        bind "N" { Search "up"; }
-        bind "c" { SearchToggleOption "CaseSensitivity"; }
-        bind "n" { Search "down"; }
-        bind "o" { SearchToggleOption "WholeWord"; }
-        bind "p" { Search "up"; }
-        bind "w" { SearchToggleOption "Wrap"; }
-    }
     shared_except "locked" {
-        bind "Alt left" { GoToPreviousTab; }
-        bind "Alt right" { GoToNextTab; }
+        bind "Alt h" { MoveFocusOrTab "Left"; }
+        bind "Alt l" { MoveFocusOrTab "Right"; }
+        bind "Alt j" { MoveFocus "Down"; }
+        bind "Alt k" { MoveFocus "Up"; }
+        bind "Alt [" { FocusPreviousPane; }
+        bind "Alt ]" { FocusNextPane; }
+        bind "Alt Left" { GoToPreviousTab; }
+        bind "Alt Right" { GoToNextTab; }
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
         bind "Alt 3" { GoToTab 3; }
@@ -50,67 +25,69 @@ keybinds clear-defaults=true {
         bind "Alt 7" { GoToTab 7; }
         bind "Alt 8" { GoToTab 8; }
         bind "Alt 9" { GoToTab 9; }
-        bind "Alt H" { Resize "Increase left"; }
-        bind "Alt J" { Resize "Increase down"; }
-        bind "Alt K" { Resize "Increase up"; }
-        bind "Alt L" { Resize "Increase right"; }
+        bind "Alt L" { Resize "Right"; }
+        bind "Alt K" { Resize "Up"; }
+        bind "Alt J" { Resize "Down"; }
+        bind "Alt H" { Resize "Left"; }
         bind "Alt P" { TogglePaneFrames; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
+    }
+    normal {
+        bind "Alt s" { SwitchToMode "scroll"; }
+        bind "Alt y" { SwitchToMode "locked"; }
+        bind "Alt /" { SwitchToMode "entersearch"; }
+        bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
+        bind "Alt p" { SwitchToMode "renamepane"; PaneNameInput 0;}
+        bind "Alt d" { Detach; }
+        bind "Alt n" { NewPane "Right"; }
+        bind "Alt m" { NewPane "Down"; }
+        bind "Alt x" { CloseFocus; }
+        bind "Alt t" { NewTab; }
+        bind "Alt q" { CloseTab; }
+        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt F" { TogglePaneEmbedOrFloating; }
+        bind "Alt z" { ToggleFocusFullscreen; }
+        bind "Alt e" { EditScrollback; }
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
     }
     shared_among "normal" "scroll" "search" {
-        bind "Alt /" { SwitchToMode "entersearch"; }
-    }
-    shared_except "normal" "locked" {
-        bind "Alt [" { FocusPreviousPane; }
-        bind "Alt ]" { FocusNextPane; }
-    }
-    shared_among "scroll" "entersearch" "search" {
-        bind "esc" { SwitchToMode "normal"; }
+        bind "Alt e" { EditScrollback; SwitchToMode "Normal"; }
     }
     shared_among "scroll" "search" {
-        bind "PageDown" { HalfPageScrollDown; }
-        bind "PageUp" { HalfPageScrollUp; }
-        bind "down" { ScrollDown; }
-        bind "up" { ScrollUp; }
+        bind "Esc" "q" { SwitchToMode "normal"; }
+        bind "Alt /" { SwitchToMode "entersearch"; }
+        bind "j" "Down" { ScrollDown; }
+        bind "k" "Up" { ScrollUp; }
         bind "J" { HalfPageScrollDown; }
         bind "K" { HalfPageScrollUp; }
-        bind "Alt e" { EditScrollback; SwitchToMode "normal"; }
-        bind "j" { ScrollDown; }
-        bind "k" { ScrollUp; }
-        bind "q" { SwitchToMode "normal"; }
+        bind "PageDown" { HalfPageScrollDown; }
+        bind "PageUp" { HalfPageScrollUp; }
+    }
+    scroll {
+        bind "/" { SwitchToMode "entersearch"; }
     }
     entersearch {
-        bind "enter" { SwitchToMode "search"; }
+        bind "Esc" { SwitchToMode "normal"; }
+        bind "Enter" { SwitchToMode "search"; }
+    }
+    search {
+        bind "n" { Search "Down"; }
+        bind "N" { Search "Up"; }
+        bind "p" { Search "Up"; }
+        bind "c" { SearchToggleOption "CaseSensitivity"; }
+        bind "w" { SearchToggleOption "Wrap"; }
+        bind "o" { SearchToggleOption "WholeWord"; }
     }
     renametab {
-        bind "esc" { UndoRenameTab; SwitchToMode "normal"; }
-    }
-    shared_among "renametab" "renamepane" {
-        bind "enter" { SwitchToMode "normal"; }
+        bind "Enter" { SwitchToMode "normal"; }
+        bind "Esc" { UndoRenameTab; SwitchToMode "normal"; }
     }
     renamepane {
-        bind "esc" { UndoRenamePane; SwitchToMode "normal"; }
+        bind "Enter" { SwitchToMode "normal"; }
+        bind "Esc" { UndoRenamePane; SwitchToMode "normal"; }
+    }
+    locked {
+        bind "Alt y" { SwitchToMode "normal"; }
     }
 }
 
-plugins {
-    about location="zellij:about"
-    compact-bar location="zellij:compact-bar"
-    configuration location="zellij:configuration"
-    filepicker location="zellij:strider" {
-        cwd "/"
-    }
-    plugin-manager location="zellij:plugin-manager"
-    session-manager location="zellij:session-manager"
-    status-bar location="zellij:status-bar"
-    strider location="zellij:strider"
-    tab-bar location="zellij:tab-bar"
-    welcome-screen location="zellij:session-manager" {
-        welcome_screen true
-    }
-}
-
-load_plugins { }
