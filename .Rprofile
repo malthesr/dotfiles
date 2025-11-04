@@ -3,4 +3,9 @@ if (interactive()) {
   .Last <- function() try(savehistory("~/.Rhistory"))
 }
 
-options(menu.graphics = FALSE)
+options(
+  repos = c(CRAN = "https://mirrors.dotsrc.org/cran/"),
+  menu.graphics = FALSE,
+  lifecycle_verbosity = "warning",
+  tidyverse.quiet = TRUE
+)
