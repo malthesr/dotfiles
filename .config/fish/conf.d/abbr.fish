@@ -6,7 +6,8 @@ abbr -a z 'zellij'
 abbr -a jl 'julia --banner=no --threads 4'
 abbr -a py 'python3 -q'
 abbr -a r 'R --quiet --no-save'
-abbr -a p "pixi"
+abbr -a p 'pixi'
+abbr -a o 'xdg-open'
 
 abbr -a md 'mkdir -p'
 
