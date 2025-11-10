@@ -1,5 +1,6 @@
 set selection-clipboard clipboard
 set guioptions none
+set recolor true
 
 map <Left> navigate previous
 map <Right> navigate next
