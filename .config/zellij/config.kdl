@@ -8,14 +8,14 @@ show_startup_tips false
 
 keybinds clear-defaults=true {
     shared_except "locked" {
-        bind "Alt h" { MoveFocusOrTab "Left"; }
-        bind "Alt l" { MoveFocusOrTab "Right"; }
+        bind "Alt h" { MoveFocus "Left"; }
+        bind "Alt l" { MoveFocus "Right"; }
         bind "Alt j" { MoveFocus "Down"; }
         bind "Alt k" { MoveFocus "Up"; }
-        bind "Alt [" { FocusPreviousPane; }
-        bind "Alt ]" { FocusNextPane; }
         bind "Alt Left" { GoToPreviousTab; }
         bind "Alt Right" { GoToNextTab; }
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
         bind "Alt 3" { GoToTab 3; }
@@ -47,8 +47,6 @@ keybinds clear-defaults=true {
         bind "Alt F" { TogglePaneEmbedOrFloating; }
         bind "Alt z" { ToggleFocusFullscreen; }
         bind "Alt e" { EditScrollback; }
-        bind "Alt [" { PreviousSwapLayout; }
-        bind "Alt ]" { NextSwapLayout; }
     }
     shared_among "normal" "scroll" "search" {
         bind "Alt e" { EditScrollback; SwitchToMode "Normal"; }
