@@ -1,5 +1,5 @@
 [Default Applications]
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
 image/png=mupdf.desktop
 image/jpeg=mupdf.desktop
 image/svg+xml=mupdf.desktop
