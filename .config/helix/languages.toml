@@ -24,19 +24,23 @@ name = "python"
 auto-format = true
 rulers = [101]
 language-servers = [
-    {name = "pyright"},
+    {name = "ty"},
     {name = "ruff"},
 ]
 
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
+[language-server.ty]
+command = "ty"
+args = ["server"]
 config = {}
 
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
 config = {}
+
+[[language]]
+name = "snakemake"
+auto-format = true
 
 [[language]]
 name = "nextflow"
