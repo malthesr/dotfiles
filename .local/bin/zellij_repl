@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+declare -A REPL_COMMANDS=(
+  [python]="python"
+  [julia]="julia"
+  [r]="R --quiet --no-save"
+  [bash]="bash"
+  [fish]="fish"
+)
+
+PROGRAM=$(basename "$0")
+
+usage() {
+  echo "usage: ${PROGRAM} <language>" >&2
+  exit 1
+}
+
+LANGUAGE=${1:-}
+[[ -n "${LANGUAGE}" ]] || usage
+
+if [[ -z "${REPL_COMMANDS[${LANGUAGE}]}" ]]; then
+  echo "${PROGRAM}: unknown language: ${LANGUAGE}" >&2
+  exit 1
+fi
+
+# Returns the ID of the current tab.
+tab_id() {
+  zellij action current-tab-info --json | jq '.tab_id'
+}
+
+# Returns the ID of the pane with the provided name in the current tab.
+pane_id_by_name() {
+  local name
+  name=${1:?usage: pane_id_by_name <name>}
+  zellij action list-panes --json \
+    | jq \
+      --arg name "${name}" \
+      '
+        first(
+          .[] | select(.is_plugin | not) | select(.title == $name) | .id
+        ) // empty
+      '
+}
+
+# Returns the name of the REPL pane for the current tab.
+repl_pane_name() {
+  echo "__tab_$(tab_id)_${LANGUAGE}_repl__"
+}
+
+# Returns the ID of the REPL pane for the current tab.
+#
+# If the REPL pane does not exist, it will be created with the REPL launched.
+repl_pane_id() {
+  local name id
+  name=$(repl_pane_name)
+  id=$(pane_id_by_name "${name}")
+  if [[ -z "${id}" ]]; then
+    read -ra cmd <<< "${REPL_COMMANDS[${LANGUAGE}]}"
+    id=$(zellij action new-pane --name "${name}" -- "${cmd[@]}")
+  fi
+  echo "${id}"
+}
+
+# Sends all text provided via stdin to the REPL pane for the current tab.
+#
+# If the REPL pane does not exist, it will be created with the REPL launched.
+send_stdin_to_repl() {
+  local text id
+  text=$(cat)
+  id=$(repl_pane_id)
+  zellij action write-chars --pane-id "${id}" "${text}"
+  zellij action write --pane-id "${id}" 10
+}
+
+send_stdin_to_repl

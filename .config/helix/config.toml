@@ -83,8 +83,7 @@ backspace = "select_register"
 G = "no_op"
 ";" = "no_op"
 
-# TODO: Send language with https://github.com/helix-editor/helix/pull/6979
-"=" = ":pipe-to $HOME/.config/tmux/repl.sh" # Send selection to REPL
+"=" = ":pipe-to zellij_repl %{language}" # Send selection to REPL
 "+" = "@map=<esc>" # Send paragraph to REPL
 
 [keys.select]
@@ -104,8 +103,7 @@ C-e = "extend_next_sub_word_end"
 
 z = "flip_selections"
 
-# TODO: See above
-"=" = ":pipe-to $HOME/.config/tmux/repl.sh" # Send selection to REPL
+"=" = ":pipe-to zellij_repl %{language}" # Send selection to REPL
 
 [keys.insert]
 # Apparently the best way to do this,
