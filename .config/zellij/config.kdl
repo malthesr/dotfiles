@@ -7,15 +7,17 @@ scroll_buffer_size 100_000
 show_startup_tips false
 
 keybinds clear-defaults=true {
-    shared_except "locked" {
+    shared_except "Locked" {
         bind "Alt h" { MoveFocus "Left"; }
         bind "Alt l" { MoveFocus "Right"; }
         bind "Alt j" { MoveFocus "Down"; }
         bind "Alt k" { MoveFocus "Up"; }
-        bind "Alt Left" { GoToPreviousTab; }
-        bind "Alt Right" { GoToNextTab; }
-        bind "Alt [" { PreviousSwapLayout; }
-        bind "Alt ]" { NextSwapLayout; }
+        bind "Alt Left" { MovePane "Left"; }
+        bind "Alt Right" { MovePane "Right"; }
+        bind "Alt Down" { MovePane "Down"; }
+        bind "Alt Up" { MovePane "Up"; }
+        bind "Alt ]" { GoToNextTab; }
+        bind "Alt [" { GoToPreviousTab; }
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
         bind "Alt 3" { GoToTab 3; }
@@ -30,13 +32,27 @@ keybinds clear-defaults=true {
         bind "Alt J" { Resize "Down"; }
         bind "Alt H" { Resize "Left"; }
         bind "Alt P" { TogglePaneFrames; }
+        bind "Alt Space" {
+            LaunchOrFocusPlugin "zellij:strider" {
+                floating true
+                move_to_focused_tab true
+            };
+            SwitchToMode "Normal"
+        }
+        bind "Alt Enter" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+                move_to_focused_tab true
+            };
+            SwitchToMode "Normal"
+        }
     }
     normal {
-        bind "Alt s" { SwitchToMode "scroll"; }
-        bind "Alt y" { SwitchToMode "locked"; }
-        bind "Alt /" { SwitchToMode "entersearch"; }
-        bind "Alt r" { SwitchToMode "renametab"; TabNameInput 0; }
-        bind "Alt p" { SwitchToMode "renamepane"; PaneNameInput 0;}
+        bind "Alt s" { SwitchToMode "Scroll"; }
+        bind "Alt y" { SwitchToMode "Locked"; }
+        bind "Alt /" { SwitchToMode "EnterSearch"; }
+        bind "Alt r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+        bind "Alt p" { SwitchToMode "RenamePane"; PaneNameInput 0;}
         bind "Alt d" { Detach; }
         bind "Alt n" { NewPane "Right"; }
         bind "Alt m" { NewPane "Down"; }
@@ -48,12 +64,12 @@ keybinds clear-defaults=true {
         bind "Alt z" { ToggleFocusFullscreen; }
         bind "Alt e" { EditScrollback; }
     }
-    shared_among "normal" "scroll" "search" {
+    shared_among "Normal" "Scroll" "Search" {
         bind "Alt e" { EditScrollback; SwitchToMode "Normal"; }
     }
-    shared_among "scroll" "search" {
-        bind "Esc" "q" { SwitchToMode "normal"; }
-        bind "Alt /" { SwitchToMode "entersearch"; }
+    shared_among "Scroll" "Search" {
+        bind "Esc" "q" { SwitchToMode "Normal"; }
+        bind "Alt /" { SwitchToMode "EnterSearch"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
         bind "J" { HalfPageScrollDown; }
@@ -62,11 +78,11 @@ keybinds clear-defaults=true {
         bind "PageUp" { HalfPageScrollUp; }
     }
     scroll {
-        bind "/" { SwitchToMode "entersearch"; }
+        bind "/" { SwitchToMode "EnterSearch"; }
     }
     entersearch {
-        bind "Esc" { SwitchToMode "normal"; }
-        bind "Enter" { SwitchToMode "search"; }
+        bind "Esc" { SwitchToMode "Normal"; }
+        bind "Enter" { SwitchToMode "Search"; }
     }
     search {
         bind "n" { Search "Down"; }
@@ -77,15 +93,14 @@ keybinds clear-defaults=true {
         bind "o" { SearchToggleOption "WholeWord"; }
     }
     renametab {
-        bind "Enter" { SwitchToMode "normal"; }
-        bind "Esc" { UndoRenameTab; SwitchToMode "normal"; }
+        bind "Enter" { SwitchToMode "Normal"; }
+        bind "Esc" { UndoRenameTab; SwitchToMode "Normal"; }
     }
     renamepane {
-        bind "Enter" { SwitchToMode "normal"; }
-        bind "Esc" { UndoRenamePane; SwitchToMode "normal"; }
+        bind "Enter" { SwitchToMode "Normal"; }
+        bind "Esc" { UndoRenamePane; SwitchToMode "Normal"; }
     }
     locked {
-        bind "Alt y" { SwitchToMode "normal"; }
+        bind "Alt y" { SwitchToMode "Normal"; }
     }
 }
-
